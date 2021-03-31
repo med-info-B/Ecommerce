@@ -6,7 +6,6 @@ const mongoose = require('mongoose')
 // import routes 
 const userRouter = require('./routes/users')
 
-
 mongoose.connect(process.env.DATABASE, {
    useNewUrlParser: true,
    useCreateIndex: true,
@@ -15,6 +14,8 @@ mongoose.connect(process.env.DATABASE, {
 .then(() =>  console.Console('DARABASE connected ...') )
 .catch(() =>  console.log('not connect ...'))
 
+// middleware 
+app.use(express.json())
 
 // routes middleware 
 app.use('/api/users', userRouter)
